@@ -6,9 +6,6 @@ from sagemaker.local import LocalSession
 from sagemaker.processing import ProcessingOutput
 from sagemaker.sklearn.processing import SKLearnProcessor
 from datetime import datetime
-<<<<<<< HEAD
-
-=======
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -19,18 +16,11 @@ sagemaker_session.config = {'local': {'local_code': True}}
 import boto3
 import pandas as pd
 import tarfile
-<<<<<<< HEAD
-
-def main():
-    role = 'arn:aws:iam::111111111111:role/service-role/AmazonSageMaker-ExecutionRole-20200101T000001'
-    bucket = "s3://juadavardml"
-=======
 import os
 
 def main():
     role = 'arn:aws:iam::111111111111:role/service-role/AmazonSageMaker-ExecutionRole-20200101T000001'
     bucket = os.environ["BUCKET"]
->>>>>>> ccb7363 (Processing Job Working)
     path = "/processingJob/run-"+ datetime.now().strftime("%d%m%Y_%H_%M_%S")
     runProcessingJob(role, bucket, path)
 
